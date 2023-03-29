@@ -1,5 +1,5 @@
 /**
- * This class creates Team
+ * This class creates a Team
  * @Author Joey Dare & Tommy Parisi
  * @Version 1.0
  */
