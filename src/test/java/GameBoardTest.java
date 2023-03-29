@@ -33,9 +33,9 @@ public class GameBoardTest {
         assertFalse(testGameBoard.inBounds(numRows, numCols));
         assertFalse(testGameBoard.inBounds(-1,-1));
 // place some Units on the GameBoard
-        Unit tj = new TomJerryUnit('B', "Bart Simpson", 100.0, 0.0, 25.0, 0.0, 0, 5, 4, 2, 0, 0, true, true);
+        Unit tj = new TomJerryUnit('T', "Tom & Jerry", 100.0, 0.0, 25.0, 0.0, 0, 4, 3, 1, 0, true, true, false);
         testGameBoard.getSquares()[0][0].setUnit(tj);
-        Unit bart = new BartSimpsonUnit('T', "Tom & Jerry", 100.0, 0.0, 25.0, 0.0, 0, 4, 3, 1, 0, true, true, false);
+        Unit bart = new BartSimpsonUnit('B', "Bart Simpson", 100.0, 0.0, 25.0, 0.0, 0, 5, 4, 2, 0, 0, true, true);
         testGameBoard.getSquares()[numRows-1][numCols-1].setUnit(bart);
         System.out.println(testGameBoard.toString());
 // testing random empty space method

@@ -20,8 +20,8 @@ public class BoardSquareTest{
         assertNull(testSquare12.getUnit());
 //setUnit
 // place some Units on the GameBoard
-        Unit tj = new TomJerryUnit(/*replace with arguments*/);
-        Unit bart = new BartSimpsonUnit(/*replace with arguments*/);
+        Unit tj = new TomJerryUnit('B', "Bart Simpson", 100.0, 0.0, 25.0, 0.0, 0, 5, 4, 2, 0, 0, true, true);
+        Unit bart = new BartSimpsonUnit('T', "Tom & Jerry", 100.0, 0.0, 25.0, 0.0, 0, 4, 3, 1, 0, true, true, false);
         testSquare11.setUnit(tj);
         testSquare12.setUnit(bart);
 //toString
