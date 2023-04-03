@@ -1,4 +1,3 @@
-package org.example;
 
 public abstract class Unit {
     protected char symbol; //text representation of the piece
@@ -13,7 +12,6 @@ public abstract class Unit {
     protected int movement; //amount unit can move
     protected int movementModifier; //modifications to units movement
     protected String teamColor; //the color for the team
-    protected boolean recruit; //can recruit other units
 
     public Unit(char symbol, String name, double health, double healthModifier, double damage, double damageModifier,
                 int luck, int xCor, int yCor, int movement, int movementModifier, String teamColor){
@@ -29,7 +27,6 @@ public abstract class Unit {
         this.movement = movement;
         this.movementModifier = movementModifier;
     }
-    public abstract boolean canRecruit();
     public char getSymbol(){
         return this.symbol;
     }

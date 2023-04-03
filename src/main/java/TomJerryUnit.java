@@ -1,16 +1,14 @@
-package org.example;
-
 /*
 This class builds the Tom and Jerry character
 @author
 Thomas Parisi
 @version 1.0
 */
-public class TomJerryUnit extends Unit{
-    private int numTimesSpawned; //the number of times this piece has spawned
-    private boolean homingRocket; //can use special attack “homing rocket”
-    private boolean offerCheese; //can use special ability “offer cheese”
-    private boolean hiding; //is the unit hidden on the board
+public class TomJerryUnit extends Unit {
+    private int numTimesSpawned;
+    private boolean homingRocket;
+    private boolean offerCheese;
+    private boolean hiding;
     private final int MAX_NUM_SPAWNED = 1;
 
     public TomJerryUnit(char symbol, String name, double health, double healthModifier, double damage,
@@ -61,10 +59,6 @@ public class TomJerryUnit extends Unit{
         return numTimesSpawned;
     }
 
-    @Override
-    public boolean canRecruit() {
-        return recruit;
-    }
     public boolean canSpawn() {
         // Check if the unit is an original piece
         if (Character.isUpperCase(getSymbol())) {
@@ -75,20 +69,31 @@ public class TomJerryUnit extends Unit{
             return false;
         }
     }
-
     @Override
-    public Unit spawn() {
-            if (canSpawn()) {
-                TomJerryUnit newUnit = new TomJerryUnit('b', "Bart Simpson", 100.0,
-                        5.0, 25.0, 10.0, 0,
-                        1, 1, 1, 1, true,
-                        true, true, "Yellow");
-                newUnit.setNumTimesSpawned(numTimesSpawned + 1);
-                return newUnit;
-            } else {
-                return null;
-            }
+    public TomJerryUnit spawn() {
+        if (canSpawn()) {
+            TomJerryUnit newTJ = new TomJerryUnit();
+            newTJ.setSymbol(Character.toLowerCase(this.getSymbol()));
+            newTJ.setName("Bart Simpson");
+            newTJ.setHealth(100.0);
+            newTJ.setHealthModifier(5.0);
+            newTJ.setDamage(25.0);
+            newTJ.setDamageModifier(10.0);
+            newTJ.setLuck(0);
+            newTJ.setxCor(1);
+            newTJ.setyCor(1);
+            newTJ.setMovement(1);
+            newTJ.setMovementModifier(1);
+            newTJ.setHomingRocket(true);
+            newTJ.setOfferCheese(true);
+            newTJ.setHiding(false);
+            return newTJ;
         }
+        else {
+            return null;
+        }
+    }
+
 
     public double dealDamage() {
         double totalDamage = getDamage() + getDamageModifier();

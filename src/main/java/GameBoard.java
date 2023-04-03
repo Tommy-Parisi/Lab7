@@ -19,7 +19,7 @@ public class GameBoard {
         this.squares = new BoardSquare[numRows][numCols];
         for (int i = 0; i < numRows; ++i) {
             for (int j = 0; j < numCols; ++j) {
-        this.squares = new BoardSquare[i][j];
+                this.squares[i][j] = new BoardSquare("");
             }
         }
         setUpEmptyBoard();
@@ -29,7 +29,7 @@ public class GameBoard {
         return this.numRow;
     }
     //Returns the number of columns on game board
-    public int getNumCols() {
+    public int getNumColumns() {
         return this.numCol;
     }
     //Returns the squares 2D Array
@@ -44,7 +44,7 @@ public class GameBoard {
      * @return boolean true if within bounds, false if not
      */
     public boolean inBounds(int rowIndex, int colIndex) {
-        if ((rowIndex >= 0 && rowIndex < getNumRows()) && (colIndex >= 0 && colIndex < getNumCols())) {
+        if ((rowIndex >= 0 && rowIndex < getNumRows()) && (colIndex >= 0 && colIndex < getNumColumns())) {
             return true;
         }
         else {
@@ -75,7 +75,7 @@ public class GameBoard {
     public BoardSquare findRandomEmptySpace() {
         BoardSquare square = null;
         while (square == null || !square.isEmpty()) {
-            square = this.squares[(int) (Math.random() * getNumRows())][(int) Math.random() * getNumCols()];
+            square = this.squares[(int) (Math.random() * getNumRows())][(int) Math.random() * getNumColumns()];
         }
         return square;
     }

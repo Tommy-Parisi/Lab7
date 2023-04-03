@@ -5,33 +5,46 @@ public class TeamTest {
     @Test
     public void getTeamName() {
         System.out.println("Testing Team class");
-        Unit tj = new TomJerryUnit('T', "Tom & Jerry", 100.0, 0.0, 25.0, 0.0, 0, 4, 3, 1, 0, true, true, false);
-        Unit bart = new BartSimpsonUnit('B', "Bart Simpson", 100.0, 0.0, 25.0, 0.0, 0, 5, 4, 2, 0, 0, true, true);
-// Load the pieces in an ArrayList
+        // Two Units for player 1
+        Unit tj1 = new TomJerryUnit();
+        Unit bart1 = new BartSimpsonUnit();
+        // Two Units for player 2
+        Unit tj2 = new TomJerryUnit();
+        Unit bart2 = new BartSimpsonUnit();
         ArrayList<Unit> piecesTeamA = new ArrayList<Unit>();
-        piecesTeamA.add(tj);
-        piecesTeamA.add(bart);
 // Create a team object
-        Team teamA = new Team("Blu", piecesTeamA);
+        // Load the pieces
+        Team teamA = new Team("Blu",piecesTeamA);
+        teamA.addUnitsToTeam(tj1);
+        teamA.addUnitsToTeam(bart1);
 // check teamA
         assertEquals("Blu",teamA.getTeamColor());
-        assertEquals(4,teamA.getTeamUnits().size());
-        assertTrue(teamA.getTeamUnits().contains(tj));
-        assertTrue(teamA.getTeamUnits().contains(bart));
-// remove a Unit from teamA
-        teamA.removeUnitFromTeam(bart);
-        assertEquals(3,teamA.getTeamUnits().size());
-        assertFalse(teamA.getTeamUnits().contains(bart));
+        assertEquals(2,teamA.getTeamUnits().size());
+        assertTrue(teamA.getTeamUnits().contains(tj1));
+        assertTrue(teamA.getTeamUnits().contains(bart1));
+        assertFalse(teamA.getTeamUnits().contains(tj2));
+        assertFalse(teamA.getTeamUnits().contains(bart2));
+// remove Unit from teamA
+        teamA.removeUnitsFromTeam(bart1);
+        assertEquals(1,teamA.getTeamUnits().size());
+        assertFalse(teamA.getTeamUnits().contains(bart1));
 // create another Team object
         ArrayList<Unit> unitsTeamB = new ArrayList<Unit>();
         Team teamB = new Team("Red",unitsTeamB);
-// add a Unit the bart to team B
-        teamB.addUnitToTeam(bart);
-//check that bart color was changed to Red
-        assertEquals("Red",bart.getTeamColor());
+// Load the pieces
+        teamB.addUnitsToTeam(bart2);
+        teamB.addUnitsToTeam(tj2);
+        //add a bart1 to teamB
+        teamB.addUnitsToTeam(bart1);
+        // check that bart color was changed to Red
+        assertEquals("Red",bart1.getTeamColor());
 // check team B units
-        assertEquals(1,teamB.getTeamUnits().size());
-        assertTrue(teamB.getTeamUnits().contains(bart));
+        assertEquals(3,teamB.getTeamUnits().size());
+
+        assertTrue(teamB.getTeamUnits().contains(bart1));
+        assertTrue(teamB.getTeamUnits().contains(tj2));
+        assertTrue(teamB.getTeamUnits().contains(bart2));
+        assertFalse(teamB.getTeamUnits().contains(tj1));
         System.out.println(teamA.toString());
         System.out.println(teamB.toString());
     }

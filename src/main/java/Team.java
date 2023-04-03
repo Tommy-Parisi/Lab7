@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * This class creates a Team
  * @Author Joey Dare & Tommy Parisi
@@ -30,7 +32,7 @@ public class Team {
     }
     //This mutator method adds the unit passed into the function from the ArrayList of Units
     public void addUnitsToTeam(Unit unit) {
-        unit.setColor(this.color);
+        unit.setTeamColor(this.color);
         this.teamUnit.add(unit);
     }
     @Override
@@ -43,7 +45,3 @@ public class Team {
     }
 }
 
-
-
-
-}

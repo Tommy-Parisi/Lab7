@@ -1,5 +1,3 @@
-package org.example;
-
 /*
 This class builds the Bart Simpson character
 @author
@@ -7,8 +5,9 @@ Thomas Parisi
 @version 1.0
 */
 public class BartSimpsonUnit extends Unit {
-    private int numTimesSpawned; //the number of times this piece has spawned
-    private boolean distract; //can use special ability “distract”
+    private int numTimesSpawned;
+    private boolean distract;
+    protected boolean recruit; //can recruit other units
     private final int MAX_NUM_SPAWNED = 1;
 
     public BartSimpsonUnit(char symbol, String name, double health, double healthModifier,
@@ -50,9 +49,8 @@ public class BartSimpsonUnit extends Unit {
         this.recruit = recruit;
     }
 
-    @Override
     public boolean canRecruit() {
-        return true;
+        return this.recruit;
     }
 
     public boolean canSpawn() {
@@ -66,9 +64,10 @@ public class BartSimpsonUnit extends Unit {
         }
     }
 
-    public void distracted() {
-        if (distract){
-            System.out.println("Get Distracted");
+    public void distracted(){
+        boolean distracted = isDistract();
+        if (distracted) {
+            System.out.println("Unit Distracted!");
         }
     }
 
