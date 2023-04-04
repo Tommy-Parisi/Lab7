@@ -37,6 +37,7 @@ public class BoardSquare {
     public Unit removeUnit() {
         Unit removedUnit = this.unit;
         this.unit = null;
+        this.empty = true;
         return removedUnit;
     }
     //toString method for unit
