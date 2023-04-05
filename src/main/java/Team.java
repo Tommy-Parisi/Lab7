@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 /**
  * This class creates a Team
- * @Author Joey Dare & Tommy Parisi
+ * @Author Joey Dare
  * @Version 1.0
  */
 

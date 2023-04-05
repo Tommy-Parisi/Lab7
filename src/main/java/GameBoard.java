@@ -1,6 +1,6 @@
 /**
  * This class is for creating the Game Board
- * @Author Joey Dare & Tommy Parisi
+ * @Author Joey Dare
  * @Version 1.0
  */
 public class GameBoard {
