@@ -72,16 +72,27 @@ public class BartSimpsonUnit extends Unit {
     }
 
     @Override
-    public Unit spawn() {
+    public BartSimpsonUnit spawn() {
         if (canSpawn()) {
-            BartSimpsonUnit newUnit = new BartSimpsonUnit('b', "Bart Simpson", 100.0,
-                    5.0, 25.0, 10.0, 0,
-                    1, 1, 1, 1, 0,
-                    true, true, "Yellow");
-            newUnit.setNumTimesSpawned(numTimesSpawned + 1);
-            return newUnit;
-        } else {
-            return null;
+            BartSimpsonUnit newBart = new BartSimpsonUnit();
+            newBart.setSymbol(Character.toLowerCase(this.getSymbol()));
+            newBart.setName("Bart Simpson");
+            newBart.setHealth(100.0);
+            newBart.setHealthModifier(5.0);
+            newBart.setDamage(25.0);
+            newBart.setDamageModifier(10.0);
+            newBart.setLuck(0);
+            newBart.setxCor(1);
+            newBart.setyCor(1);
+            newBart.setMovement(1);
+            newBart.setMovementModifier(1);
+            newBart.setDistract(true);
+            newBart.setRecruit(true);
+            setNumTimesSpawned(this.getNumTimesSpawned() + 1);
+            return newBart;
+        }
+         else {
+             return null;
         }
     }
 }
