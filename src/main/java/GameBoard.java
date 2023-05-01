@@ -17,11 +17,6 @@ public class GameBoard {
         this.numRow = numRows;
         this.numCol = numCols;
         this.squares = new BoardSquare[numRows][numCols];
-        for (int i = 0; i < numRows; ++i) {
-            for (int j = 0; j < numCols; ++j) {
-                this.squares[i][j] = new BoardSquare("");
-            }
-        }
         setUpEmptyBoard();
     }
     //Returns the number of rows on game board
@@ -75,7 +70,7 @@ public class GameBoard {
     public BoardSquare findRandomEmptySpace() {
         BoardSquare square = null;
         while (square == null || !square.isEmpty()) {
-            square = this.squares[(int) (Math.random() * getNumRows())][(int) Math.random() * getNumColumns()];
+            square = this.squares[(int) (Math.random() * getNumRows())][(int) (Math.random() * getNumColumns())];
         }
         return square;
     }

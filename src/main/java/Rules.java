@@ -14,22 +14,23 @@ public class Rules {
              */
             BoardSquare[][] findUnit = gamePlayed.getGameBoard().getSquares();
             Unit unitMakingAction = findUnit[fromRow][fromCol].getUnit();
+            Unit toUnit = findUnit[toRow][toCol].getUnit();
 
             // Check that the unit on the from square belongs to the current team
             if (!(unitMakingAction.getTeamColor().equals(gamePlayed.getCurrentPlayer().getTeam().getTeamColor()))) {
                 return false;
             }
             else {
-                if (actionType == 'm' && findUnit[fromRow][fromCol].isEmpty() && unitMakingAction.validMovePath()) {
+                if (actionType == 'm' && findUnit[toRow][toCol].isEmpty() && unitMakingAction.validMovePath()) {
                     return true;
                 }
-                else if (actionType == 's' && findUnit[fromRow][fromCol].isEmpty() && unitMakingAction.validSpawnPath() && unitMakingAction.canSpawn()){
+                else if (actionType == 's' && findUnit[toRow][toRow].isEmpty() && unitMakingAction.validSpawnPath() && unitMakingAction.canSpawn()){
                     return true;
                 }
-                else if (actionType == 'r' && findUnit[fromRow][fromCol].isEmpty() && unitMakingAction.validRecruitPath()){
+                else if (actionType == 'r' && (!(findUnit[toRow][toCol].isEmpty())) && toUnit instanceof BartSimpsonUnit && unitMakingAction.validRecruitPath()){
                     return true;
                 }
-                else if (actionType == 'a' && findUnit[fromRow][fromCol].isEmpty() && unitMakingAction.validAttackPath()){
+                else if (actionType == 'a' && (!(findUnit[toRow][toCol].isEmpty())) && toUnit instanceof TomJerryUnit && unitMakingAction.validAttackPath()){
                     return true;
                 }
                 else {

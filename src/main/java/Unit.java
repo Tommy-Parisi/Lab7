@@ -99,10 +99,27 @@ public abstract class Unit {
     public void setTeamColor(String teamColor) {
         this.teamColor = teamColor;
     }
+    public abstract boolean canSpawn();
 
     @Override
     public String toString(){
         return getTeamColor() + " " + getSymbol();
     }
     public abstract Unit spawn();
+
+    public boolean validMovePath() {
+        return true;
+    }
+
+    public boolean validSpawnPath() {
+        return true;
+    }
+
+    public boolean validRecruitPath() {
+        return true;
+    }
+
+    public boolean validAttackPath() {
+        return true;
+    }
 }

@@ -17,7 +17,7 @@ public class GameTest {
         Player p1 = new Player();
         p1.setTurn(true);
         Team teamA = new Team("Blu", UnitsTeamA);
-        p1.setPlayersTeam(teamA);
+        p1.setTeam(teamA);
 // Create 2 Units for team B
         Unit redTJ = new TomJerryUnit();
         redTJ.setTeamColor("Red");
@@ -29,20 +29,20 @@ public class GameTest {
         UnitsTeamB.add(redBart);
         Player p2 = new Player();
         Team teamB = new Team("Red", UnitsTeamB);
-        p2.setPlayersTeam(teamB);
+        p2.setTeam(teamB);
         Game ourGame = new Game(8, 8, p1, p2);
         System.out.println(ourGame.toString());
         assertEquals(p1, ourGame.getCurrentPlayer());
         assertEquals(p2, ourGame.getOpponentPlayer());
-        assertEquals(teamA, ourGame.getCurrentPlayer().getPlayersTeam());
-        assertEquals(teamB, ourGame.getOpponentPlayer().getPlayersTeam());
+        assertEquals(teamA, ourGame.getCurrentPlayer().getTeam());
+        assertEquals(teamB, ourGame.getOpponentPlayer().getTeam());
         assertTrue(ourGame.isTurn(p1));
         assertFalse(ourGame.isTurn(p2));
         ourGame.changeTurn();
         assertEquals(p2, ourGame.getCurrentPlayer());
         assertEquals(p1, ourGame.getOpponentPlayer());
-        assertEquals(teamB, ourGame.getCurrentPlayer().getPlayersTeam());
-        assertEquals(teamA, ourGame.getOpponentPlayer().getPlayersTeam());
+        assertEquals(teamB, ourGame.getCurrentPlayer().getTeam());
+        assertEquals(teamA, ourGame.getOpponentPlayer().getTeam());
         assertTrue(ourGame.isTurn(p2));
         assertFalse(ourGame.isTurn(p1));
     }

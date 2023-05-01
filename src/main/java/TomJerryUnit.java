@@ -60,14 +60,7 @@ public class TomJerryUnit extends Unit {
     }
 
     public boolean canSpawn() {
-        // Check if the unit is an original piece
-        if (Character.isUpperCase(getSymbol())) {
-            // Check if the unit hasn't reached its maximum number of spawns
-            return numTimesSpawned < MAX_NUM_SPAWNED;
-        } else {
-            // Non-original pieces can't spawn
-            return false;
-        }
+        return true;
     }
     @Override
     public TomJerryUnit spawn() {
