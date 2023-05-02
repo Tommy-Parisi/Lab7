@@ -1,5 +1,19 @@
+/**
+ This class contains the rules to check if an action is valid or not
+ @author
+ Joey Dare
+ @version 1.0
+ */
 public class Rules {
-
+    /**
+     * @param gamePlayed
+     * @param fromRow
+     * @param fromCol
+     * @param toRow
+     * @param toCol
+     * @param actionType
+     * @return boolean, true if the action performed is valid, else it returns false
+     */
     public static boolean checkValidAction(Game gamePlayed, int fromRow, int fromCol,
                                            int toRow, int toCol, char actionType) {
                 actionType = Character.toLowerCase(actionType);

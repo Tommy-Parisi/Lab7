@@ -1,3 +1,9 @@
+/**
+ This class provides the text view for the player to enter their input and play the game
+ @author
+ Joey Dare
+ @version 1.0
+ */
 import java.util.Scanner;
 
 public class TextView {
@@ -27,6 +33,7 @@ public class TextView {
             return this.actionType;
         }
 
+        //Gets the players action
         public char getUsersNextActionType() {
             Scanner scn = new Scanner(System.in);
             System.out.println("Enter action type (M, R, A, S): ");
@@ -36,7 +43,7 @@ public class TextView {
             }
             return input.charAt(0);
         }
-
+        //Checks for valid integer
         public int getValidInt(Game game) {
             Scanner scn = new Scanner(System.in);
             int value = 0;
@@ -57,7 +64,7 @@ public class TextView {
             return value;
         }
 
-
+        //Prompts player to get location of fromUnit and toUnit
         public void getNextPlayersAction(Game game) {
             char actionType = getUsersNextActionType();
             System.out.println("Enter the row your unit is on (0-" + (game.getGameBoard().getNumRows() - 1) + "): ");
@@ -74,6 +81,7 @@ public class TextView {
         System.out.println(game);
     }
 
+    //Prints result of game
     public void printEndOfGameMessage(Game game) {
         System.out.println("Game over. " + game.getCurrentPlayer().getTeam() + " wins!");
     }
