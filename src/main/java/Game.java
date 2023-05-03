@@ -74,6 +74,25 @@ public class Game{
         player1.setTurn(!isTurn(player1));
         player2.setTurn(!isTurn(player2));
     }
+
+    public boolean isAWinner(){
+        return (player1.getTeam().getTeamUnits().size() == 0) ^ (player2.getTeam().getTeamUnits().size() == 0);
+    }
+
+    public Player getWinner() {
+        if (player1.getTeam().getTeamUnits().size() == 0) {
+            return player2;
+        } else if (player2.getTeam().getTeamUnits().size() == 0) {
+            return player1;
+        } else {
+            return null;
+        }
+    }
+
+    public boolean isGameEnded(){
+        return (player1.getTeam().getTeamUnits().size() == 0) || (player2.getTeam().getTeamUnits().size() == 0);
+    }
+
     public String toString(){
         StringBuilder retString = new StringBuilder();
         retString.append("Game Board:\n")
