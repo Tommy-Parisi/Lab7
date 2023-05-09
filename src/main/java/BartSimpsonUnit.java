@@ -4,7 +4,7 @@ This class builds the Bart Simpson character
 Thomas Parisi
 @version 1.0
 */
-public class BartSimpsonUnit extends Unit {
+public class BartSimpsonUnit extends Recruiter {
     private int numTimesSpawned;
     private boolean distract;
     protected boolean recruit; //can recruit other units
@@ -13,10 +13,10 @@ public class BartSimpsonUnit extends Unit {
     public BartSimpsonUnit(char symbol, String name, double health, double healthModifier,
                            double damage, double damageModifier, int luck, int xCor, int yCor,
                            int movement, int movementModifier, int numTimesSpawned,
-                           boolean distract, boolean recruit, String teamColor ) {
+                           boolean distract, boolean recruit, String teamColor, int numRecruits) {
 
         super(symbol, name, health, healthModifier, damage, damageModifier,
-                luck, xCor, yCor, movement, movementModifier, teamColor);
+                luck, xCor, yCor, movement, movementModifier, teamColor, numRecruits);
 
         this.numTimesSpawned = numTimesSpawned;
         this.distract = distract;
@@ -26,7 +26,7 @@ public class BartSimpsonUnit extends Unit {
     public BartSimpsonUnit() {
         this('B', "Bart Simpson", 100.0, 0.0, 25.0,
                 0.0, 0, 5, 5, 1, 0,
-                0, true, true, "Yellow");
+                0, true, true, "Yellow", 0);
     }
 
     public int getNumTimesSpawned() {

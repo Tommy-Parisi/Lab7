@@ -80,4 +80,9 @@ public class Controller {
             }
             System.out.println("Game over: " + this.game.getWinner() + " wins");
         }
+
+    public static void main(String[] args) {
+        Controller newController = new Controller();
+        newController.playGame();
     }
+        }

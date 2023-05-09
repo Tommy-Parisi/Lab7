@@ -22,7 +22,7 @@ public class ActionAttack extends Action {
             double toUnitDamage = ((TomJerryUnit)toUnit).dealDamage();
             System.out.println("Damage dealt to unit: " + toUnitDamage + "!");
             ((TomJerryUnit)toUnit).takeDamage(toUnitDamage);
-            System.out.print("Health is now at: " + toUnit.getHealth());
+            System.out.println("Health is now at: " + toUnit.getHealth());
 
             // If the defending unit is a TomJerryUnit and its health is 0 or less, remove from the opponent's team
             if(fromUnit instanceof TomJerryUnit && fromUnit.getHealth() <= 0) {

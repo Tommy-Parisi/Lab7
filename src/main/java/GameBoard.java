@@ -80,7 +80,8 @@ public class GameBoard {
         boardString.append("Col : ");
 
         for(int col = 0; col < squares[0].length; col++){
-            boardString.append(col + " ");
+            boardString.append("     ");
+            boardString.append(col + "  ");
         }
         boardString.append("\n");
         for(int row = 0; row < squares.length; row++){

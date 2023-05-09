@@ -38,10 +38,14 @@ public class TextView {
             Scanner scn = new Scanner(System.in);
             System.out.println("Enter action type (M, R, A, S): ");
             String input = scn.nextLine();
-            if (input.length() == 0 || (!(input.equals('M'))) || (!(input.equals('R'))) || (!(input.equals('A'))) || (!(input.equals('S')))) {
+            input = input.toUpperCase();
+            if (input.length() == 0 || ((input.charAt(0) != 'M') && (input.charAt(0) != 'R') && (input.charAt(0) != 'A') && (input.charAt(0) != 'S'))) {
                 return getUsersNextActionType();
             }
-            return input.charAt(0);
+            else {
+                actionType = input.charAt(0);
+                return input.charAt(0);
+            }
         }
         //Checks for valid integer
         public int getValidInt(Game game) {
