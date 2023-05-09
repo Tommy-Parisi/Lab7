@@ -103,4 +103,28 @@ public class TomJerryUnit extends Attacker {
             setHealth(currentHealth);
         }
     }
+    @Override
+    public boolean validMovePath(int fromRow, int fromCol, int toRow, int toCol) {
+        return true;
+    }
+    @Override
+    public boolean validSpawnPath(int fromRow, int fromCol, int toRow, int toCol) {
+        return true;
+    }
+    @Override
+    public boolean validAttackPath(int fromRow, int fromCol, int toRow, int toCol) {
+        //Checks if move is on row not up or down column, allowed to attack across row
+        if (fromRow == toRow) {
+            return true;
+        }
+        //Checks if move is up or down two columns MAX
+        else if (Math.abs(toRow - fromRow) <= 2) {
+            //Makes sure no move is across the row when attacking up or down
+            if (fromCol == toCol) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

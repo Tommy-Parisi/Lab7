@@ -75,10 +75,22 @@ public class TextView {
             fromSquareRow = getValidInt(game);
             System.out.println("Enter the column your unit is on (0-" + (game.getGameBoard().getNumColumns() - 1) + "): ");
             fromSquareCol = getValidInt(game);
+
+            BoardSquare[][] findUnit = game.getGameBoard().getSquares();
+            Unit fromUnit = findUnit[fromSquareRow][fromSquareCol].getUnit();
+            if (findUnit[fromSquareRow][fromSquareCol].isEmpty()) {
+                System.out.println("No Unit on that space!");
+                System.out.println("Enter the correct row and column your unit is on");
+                getNextPlayersAction(game);
+            }
+
             System.out.println("Enter the row you want your unit to go (0-" + (game.getGameBoard().getNumRows() - 1) + "): ");
             toSquareRow = getValidInt(game);
             System.out.println("Enter the column you want your unit to go (0-" + (game.getGameBoard().getNumColumns() - 1) + "): ");
             toSquareCol = getValidInt(game);
+
+
+
         }
 
     public void updateView(Game game) {

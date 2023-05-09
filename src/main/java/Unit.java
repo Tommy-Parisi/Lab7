@@ -107,19 +107,8 @@ public abstract class Unit {
     }
     public abstract Unit spawn();
 
-    public boolean validMovePath() {
-        return true;
-    }
+    public abstract boolean validMovePath(int fromRow, int fromCol, int toRow, int toCol);
 
-    public boolean validSpawnPath() {
-        return true;
-    }
+    public abstract boolean validSpawnPath(int fromRow, int fromCol, int toRow, int toCol);
 
-    public boolean validRecruitPath() {
-        return true;
-    }
-
-    public boolean validAttackPath() {
-        return true;
-    }
 }

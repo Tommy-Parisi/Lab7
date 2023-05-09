@@ -64,7 +64,7 @@ public class BartSimpsonUnit extends Recruiter {
         }
     }
 
-    public void distracted(){
+    public void distracted() {
         boolean distracted = isDistract();
         if (distracted) {
             System.out.println("Unit Distracted!");
@@ -90,9 +90,54 @@ public class BartSimpsonUnit extends Recruiter {
             newBart.setRecruit(true);
             setNumTimesSpawned(this.getNumTimesSpawned() + 1);
             return newBart;
-        }
-         else {
-             return null;
+        } else {
+            return null;
         }
     }
+    @Override
+    public boolean validRecruitPath(int fromRow, int fromCol, int toRow, int toCol) {
+        //Check if move is on the same column
+        if (fromCol == toCol) {
+            return true;
+        }
+        // Check if the move is within two spaces across the row
+        else if (Math.abs(toCol - fromCol) <= 2) {
+            // Check if the move is exactly two spaces across and no spaces down the column
+            if (toRow == fromRow) {
+                return true;
+            }
+        }
+        return false;
+    }
+    @Override
+    public boolean validMovePath(int fromRow, int fromCol, int toRow, int toCol) {
+        //Check if move is on the same column
+        if (fromCol == toCol) {
+                return true;
+            }
+        // Check if the move is exactly two spaces or fewer across and no spaces down the column
+        else if (Math.abs(toCol - fromCol) <= 2) {
+            if (toRow == fromRow) {
+                return true;
+            }
+        }
+        return false;
+    }
+    @Override
+    public boolean validSpawnPath(int fromRow, int fromCol, int toRow, int toCol) {
+        //Check if move is on the same column
+        if (fromCol == toCol) {
+            return true;
+        }
+        // Check if the move is exactly two spaces or fewer across and no spaces down the column
+        else if (Math.abs(toCol - fromCol) <= 2) {
+
+            if (toRow == fromRow) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 }

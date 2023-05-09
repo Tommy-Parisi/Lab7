@@ -40,16 +40,16 @@ public class Rules {
                 return false;
             }
             else {
-                if (actionType == 'm' && findUnit[toRow][toCol].isEmpty() && fromUnit.validMovePath()) {
+                if (actionType == 'm' && findUnit[toRow][toCol].isEmpty() && fromUnit.validMovePath(fromRow, fromCol, toRow, toCol)) {
                     return true;
                 }
-                else if (actionType == 's' && findUnit[toRow][toRow].isEmpty() && fromUnit.validSpawnPath() && fromUnit.canSpawn()){
+                else if (actionType == 's' && findUnit[toRow][toRow].isEmpty() && fromUnit.validSpawnPath(fromRow, fromCol, toRow, toCol) && fromUnit.canSpawn()){
                     return true;
                 }
-                else if (actionType == 'r' && (!(findUnit[toRow][toCol].isEmpty())) && fromUnit instanceof BartSimpsonUnit && fromUnit.validRecruitPath()){
+                else if (actionType == 'r' && (!(findUnit[toRow][toCol].isEmpty())) && fromUnit instanceof BartSimpsonUnit && ((BartSimpsonUnit)fromUnit).validRecruitPath(fromRow, fromCol, toRow, toCol)){
                     return true;
                 }
-                else if (actionType == 'a' && (!(findUnit[toRow][toCol].isEmpty())) && fromUnit instanceof TomJerryUnit && fromUnit.validAttackPath()){
+                else if (actionType == 'a' && (!(findUnit[toRow][toCol].isEmpty())) && fromUnit instanceof TomJerryUnit && ((TomJerryUnit)fromUnit).validAttackPath(fromRow, fromCol, toRow, toCol)){
                     return true;
                 }
                 else {

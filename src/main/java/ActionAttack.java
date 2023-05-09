@@ -25,13 +25,13 @@ public class ActionAttack extends Action {
             System.out.println("Health is now at: " + toUnit.getHealth());
 
             // If the defending unit is a TomJerryUnit and its health is 0 or less, remove from the opponent's team
-            if(fromUnit instanceof TomJerryUnit && fromUnit.getHealth() <= 0) {
+            if(toUnit instanceof TomJerryUnit && toUnit.getHealth() <= 0) {
                 this.game.getOpponentPlayer().getTeam().removeUnitsFromTeam(toUnit);
                 findUnit[toRow][toCol].setUnit(fromUnit);
                 findUnit[fromRow][fromCol].removeUnit();
             }
             // If the unit being attacked is a BartSimpsonUnit, remove it
-            else if(fromUnit instanceof BartSimpsonUnit) {
+            else if(toUnit instanceof BartSimpsonUnit) {
                 findUnit[toRow][toCol].removeUnit();
                 findUnit[toRow][toCol].setUnit(fromUnit);
                 findUnit[fromRow][fromCol].removeUnit();
