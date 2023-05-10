@@ -46,10 +46,10 @@ public class Rules {
                 else if (actionType == 's' && findUnit[toRow][toRow].isEmpty() && fromUnit.validSpawnPath(fromRow, fromCol, toRow, toCol) && fromUnit.canSpawn()){
                     return true;
                 }
-                else if (actionType == 'r' && (!(findUnit[toRow][toCol].isEmpty())) && fromUnit instanceof BartSimpsonUnit && ((BartSimpsonUnit)fromUnit).validRecruitPath(fromRow, fromCol, toRow, toCol)){
+                else if (actionType == 'r' && (!(findUnit[toRow][toCol].isEmpty())) && fromUnit instanceof BartSimpsonUnit && ((BartSimpsonUnit)fromUnit).validRecruitPath(fromRow, fromCol, toRow, toCol) && (toUnit.getTeamColor().equals(gamePlayed.getOpponentPlayer().getTeam().getTeamColor()))){
                     return true;
                 }
-                else if (actionType == 'r' && (!(findUnit[toRow][toCol].isEmpty())) && fromUnit instanceof SquidwardUnit && ((SquidwardUnit)fromUnit).validRecruitPath(fromRow, fromCol, toRow, toCol)){
+                else if (actionType == 'r' && (!(findUnit[toRow][toCol].isEmpty())) && fromUnit instanceof SquidwardUnit && ((SquidwardUnit)fromUnit).validRecruitPath(fromRow, fromCol, toRow, toCol) && (toUnit.getTeamColor().equals(gamePlayed.getOpponentPlayer().getTeam().getTeamColor()))){
                     return true;
                 }
                 else if (actionType == 'a' && (!(findUnit[toRow][toCol].isEmpty())) && fromUnit instanceof TomJerryUnit && ((TomJerryUnit)fromUnit).validAttackPath(fromRow, fromCol, toRow, toCol)){

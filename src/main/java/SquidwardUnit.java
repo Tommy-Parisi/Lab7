@@ -8,7 +8,7 @@ public class SquidwardUnit extends Recruiter {
     
         private int numTimesSpawned;
         //New Unit Modifications: if Squidward has his clarinet he can recruit units on his whole row
-        //Without the clarinet he can only recruit units within two spaces infront of him
+        //Without the clarinet he can only recruit units within two spaces infront or behind of him
         private boolean clarinet;
         protected boolean recruit; //can recruit other units
         private final int MAX_NUM_SPAWNED = 1;
