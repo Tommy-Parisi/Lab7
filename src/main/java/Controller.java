@@ -15,8 +15,16 @@ public class Controller {
         TomJerryUnit tj = new TomJerryUnit();
         tj.setTeamColor("Blu");
 
+        StewieGriffinUnit g = new StewieGriffinUnit();
+        g.setTeamColor("Blu");
+
+        SquidwardUnit s = new SquidwardUnit();
+        s.setTeamColor("Blu");
+
         piecesTeamA.add(bs);
         piecesTeamA.add(tj);
+        piecesTeamA.add(g);
+        piecesTeamA.add(s);
 
         // Create a team object
         Team teamA = new Team("Blu",piecesTeamA);
@@ -32,8 +40,16 @@ public class Controller {
         TomJerryUnit tj2 = new TomJerryUnit();
         tj2.setTeamColor("Red");
 
+        StewieGriffinUnit g2 = new StewieGriffinUnit();
+        g2.setTeamColor("Red");
+
+        SquidwardUnit s2 = new SquidwardUnit();
+        s2.setTeamColor("Red");
+
         piecesTeamB.add(bs2);
         piecesTeamB.add(tj2);
+        piecesTeamB.add(g2);
+        piecesTeamB.add(s2);
 
         // Create a team object
         Team teamB = new Team("Red",piecesTeamB);

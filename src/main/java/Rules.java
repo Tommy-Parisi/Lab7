@@ -49,7 +49,13 @@ public class Rules {
                 else if (actionType == 'r' && (!(findUnit[toRow][toCol].isEmpty())) && fromUnit instanceof BartSimpsonUnit && ((BartSimpsonUnit)fromUnit).validRecruitPath(fromRow, fromCol, toRow, toCol)){
                     return true;
                 }
+                else if (actionType == 'r' && (!(findUnit[toRow][toCol].isEmpty())) && fromUnit instanceof SquidwardUnit && ((SquidwardUnit)fromUnit).validRecruitPath(fromRow, fromCol, toRow, toCol)){
+                    return true;
+                }
                 else if (actionType == 'a' && (!(findUnit[toRow][toCol].isEmpty())) && fromUnit instanceof TomJerryUnit && ((TomJerryUnit)fromUnit).validAttackPath(fromRow, fromCol, toRow, toCol)){
+                    return true;
+                }
+                else if (actionType == 'a' && (!(findUnit[toRow][toCol].isEmpty())) && fromUnit instanceof StewieGriffinUnit && ((StewieGriffinUnit)fromUnit).validAttackPath(fromRow, fromCol, toRow, toCol)){
                     return true;
                 }
                 else {
