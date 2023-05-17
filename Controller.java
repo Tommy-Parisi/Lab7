@@ -118,6 +118,7 @@ public class Controller {
         gameEventLinkedLists.add(this.linkedList.pop("R"));
         gameEventLinkedLists.add(this.linkedList.pop("S"));
         Collections.sort(gameEventLinkedLists);
+        Collection.reverse(gameEventLinkedLists);
         for (GameEventLinkedList eventList : gameEventLinkedLists) {
             System.out.println("Event Type: " + text.getActionType() + "Size: " + eventList.countEvents());
         }
