@@ -36,6 +36,12 @@ public class Game{
             BoardSquare randomSquare = gameBoard.findRandomEmptySpace();
             randomSquare.setUnit(unit);
         }
+
+        //BoardSquare specialSquare = gameBoard.findRandomEmptySpace(); //initializes special square
+        BoardSquare[][] ZeroZero = gameBoard.getSquares(); //Test special, remove comment to test
+        //specialSquare.setSpecial(specialSquare); //makes specialSquare special
+        ZeroZero[0][0].setSpecial(ZeroZero[0][0]); //Test special, remove comment to test
+
         return gameBoard;
     }
 

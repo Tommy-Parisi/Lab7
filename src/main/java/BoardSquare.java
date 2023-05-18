@@ -7,6 +7,7 @@ public class BoardSquare {
     private boolean empty;
     private Unit unit;
     private String color;
+    private boolean special;
     /**
      * This constructor sets color to the color passed
      * The board square is empty by default
@@ -27,6 +28,10 @@ public class BoardSquare {
     //returns the Squares color
     public String getSquareColor() {
         return this.color;
+    }
+    //Returns if boardSquare isSpecial
+    public boolean isSpecial(){
+        return this.special;
     }
     //Mutator method for units
     public void setUnit(Unit newUnit) {
@@ -49,4 +54,17 @@ public class BoardSquare {
             return "-" + getUnit().toString() + "-";
         }
     }
+
+    //method to eject the unit when it lands on the special square
+    public void ejectUnit() {
+        if (unit != null){
+            unit.setHealth(0.0); //Eject the unit from the game
+            unit = null; //remove the unit from the square
+        }
+    }
+
+    public void setSpecial(BoardSquare specialSquare){
+        specialSquare.special = true;
+    }
+
 }
