@@ -1,13 +1,18 @@
 public class ActionMove extends Action {
-    public ActionMove(Game game, int fromRow, int fromColumn, int toRow, int toColumn) {
-        super(game, fromRow, fromColumn, toRow, toColumn);
+    public ActionMove(int fromRow, int fromCol, int toRow, int toCol, Game game) {
+        super(fromRow, fromCol, toRow, toCol, game);
     }
 
     public void performAction() {
         BoardSquare[][] square = this.game.getBoardSquares();
-        Unit unit = square[fromRow][fromColumn].removeUnit();
-        square[toRow][toColumn].setUnit(unit);
-        this.game.changeTurn();
+        if(square[toRow][toCol].isSpecial()){ //if its square special
+            square[toRow][toCol].ejectUnit(); //eject the unit occupying the space
+        }
+        else {
+            Unit unit = square[fromRow][fromCol].removeUnit();
+            square[toRow][toCol].setUnit(unit);
+            this.game.changeTurn();
+        }
     }
 
 }
