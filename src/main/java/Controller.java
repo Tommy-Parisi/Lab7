@@ -1,8 +1,9 @@
 import java.util.ArrayList;
-
+import java.util.Collections;
 public class Controller {
     private Game game;
     private TextView text;
+    private GameEventsLinkedList linkedList;
 
     public Game setUpGameModel(){
         // Create 4 pieces for team A
@@ -63,25 +64,41 @@ public class Controller {
         this.game = setUpGameModel();
         this.text = new TextView();
         this.text.updateView(this.game);
+        this.linkedList = new GameEventsLinkedList();
     }
 
     public void carryOutAction(int fromRow, int fromCol, int toRow, int toCol, char action) {
+        String actionString = "";
+        String eventType = "";
         if (action == 'M') {
             ActionMove move = new ActionMove(fromRow, fromCol, toRow, toCol, this.game);
             move.performAction();
+            actionString = move.toString();
+            eventType = "M";
         }
         if (action == 'A') {
             ActionAttack attack = new ActionAttack(fromRow, fromCol, toRow, toCol, this.game);
             attack.performAction();
+            actionString = attack.toString();
+            eventType = "A";
         }
         if (action == 'R') {
             ActionRecruit recruit = new ActionRecruit(fromRow, fromCol, toRow, toCol, this.game);
             recruit.performAction();
+            actionString = recruit.toString();
+            eventType = "R";
         }
         if (action == 'S') {
             ActionSpawn spawn = new ActionSpawn(fromRow, fromCol, toRow, toCol, this.game);
             spawn.performAction();
+            actionString = spawn.toString();
+            eventType = "S";
         }
+
+        GameEvent event = new GameEvent(this.game.getCurrentPlayer().getPlayerNumber(), eventType, actionString);
+        GameEventNode eventNode = new GameEventNode(event);
+        this.linkedList.push(eventNode);
+
     }
 
         public void playGame(){
@@ -94,7 +111,19 @@ public class Controller {
                 carryOutAction(text.getFromSquareRow(), text.getFromSquareCol(), text.getToSquareRow(), text.getToSquareCol(), text.getActionType());
                 System.out.println(this.game);
             }
-            System.out.println("Game over: " + this.game.getWinner() + " wins");
+            // New addition
+            System.out.println("Winning move: " + this.linkedList.pop().getEventDetails());
+            ArrayList<GameEventsLinkedList> gameEventLinkedLists = new ArrayList<>();
+            gameEventLinkedLists.add(this.linkedList.pop("M"));
+            gameEventLinkedLists.add(this.linkedList.pop("A"));
+            gameEventLinkedLists.add(this.linkedList.pop("R"));
+            gameEventLinkedLists.add(this.linkedList.pop("S"));
+            Collections.sort(gameEventLinkedLists);
+            Collections.reverse(gameEventLinkedLists);
+            for (GameEventsLinkedList eventList : gameEventLinkedLists) {
+                System.out.println("Event Type: " + text.getActionType() + "Size: " + eventList.countEvents());
+            }
+            text.printEndOfGameMessage(this.game);
         }
 
     public static void main(String[] args) {
