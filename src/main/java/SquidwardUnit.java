@@ -12,14 +12,14 @@ public class SquidwardUnit extends Recruiter {
         private boolean clarinet;
         protected boolean recruit; //can recruit other units
         private final int MAX_NUM_SPAWNED = 1;
-
+    
         public SquidwardUnit(char symbol, String name, double health, double healthModifier,
                                double damage, double damageModifier, int luck, int xCor, int yCor,
                                int movement, int movementModifier, int numTimesSpawned,
-                               boolean clarinet, boolean recruit, String teamColor, int numRecruits) {
+                               boolean clarinet, boolean recruit, String teamColor, int numRecruits, int points) {
 
             super(symbol, name, health, healthModifier, damage, damageModifier,
-                    luck, xCor, yCor, movement, movementModifier, teamColor, numRecruits);
+                    luck, xCor, yCor, movement, movementModifier, teamColor, numRecruits, points);
 
             this.numTimesSpawned = numTimesSpawned;
             this.clarinet = clarinet;
@@ -29,7 +29,7 @@ public class SquidwardUnit extends Recruiter {
         public SquidwardUnit() {
             this('S', "Squidward", 100.0, 0.0, 25.0,
                     0.0, 0, 5, 5, 1, 0,
-                    0, true, true, "Yellow", 0);
+                    0, true, true, "Yellow", 0, 2);
         }
 
         public int getNumTimesSpawned() {
@@ -85,6 +85,7 @@ public class SquidwardUnit extends Recruiter {
                 newSquidward.setClarinet(true);
                 newSquidward.setRecruit(true);
                 setNumTimesSpawned(this.getNumTimesSpawned() + 1);
+                newSquidward.setPoints(1);
                 return newSquidward;
             } else {
                 return null;
