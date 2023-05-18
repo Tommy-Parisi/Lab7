@@ -138,6 +138,15 @@ public class BartSimpsonUnit extends Recruiter {
         }
         return false;
     }
-
+    //New Action Modification validPushPath (Checks if toUnit is within two spaces of fromUnit)
+    @Override
+    public boolean validPushPath(int fromRow, int fromCol, int toRow, int toCol) {
+        if (Math.abs(toCol - fromCol) <= 2) {
+            if (toRow == fromRow) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }

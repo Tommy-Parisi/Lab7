@@ -95,6 +95,13 @@ public class Controller {
             eventType = "S";
         }
 
+        if (action == 'P') {
+            ActionPush push = new ActionPush(fromRow, fromCol, toRow, toCol, this.game);
+            push.performAction();
+            actionString = push.toString();
+            eventType = "P";
+        }
+
         GameEvent event = new GameEvent(this.game.getCurrentPlayer().getPlayerNumber(), eventType, actionString);
         GameEventNode eventNode = new GameEventNode(event);
         this.linkedList.push(eventNode);

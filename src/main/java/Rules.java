@@ -58,6 +58,9 @@ public class Rules {
                 else if (actionType == 'a' && (!(findUnit[toRow][toCol].isEmpty())) && fromUnit instanceof StewieGriffinUnit && ((StewieGriffinUnit)fromUnit).validAttackPath(fromRow, fromCol, toRow, toCol)){
                     return true;
                 }
+                else if (actionType == 'p' && (!(findUnit[toRow][toRow].isEmpty())) && (findUnit[7][7].isEmpty() || findUnit[0][7].isEmpty() || findUnit[0][0].isEmpty() || findUnit[7][0].isEmpty()) && fromUnit.validPushPath(fromRow, fromCol, toRow, toCol)){
+                    return true;
+                }
                 else {
                     return false;
                 }

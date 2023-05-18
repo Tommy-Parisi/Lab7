@@ -36,10 +36,10 @@ public class TextView {
         //Gets the players action
         public char getUsersNextActionType() {
             Scanner scn = new Scanner(System.in);
-            System.out.println("Enter action type (M, R, A, S): ");
+            System.out.println("Enter action type (M, R, A, S, P): ");
             String input = scn.nextLine();
             input = input.toUpperCase();
-            if (input.length() == 0 || ((input.charAt(0) != 'M') && (input.charAt(0) != 'R') && (input.charAt(0) != 'A') && (input.charAt(0) != 'S'))) {
+            if (input.length() == 0 || ((input.charAt(0) != 'M') && (input.charAt(0) != 'R') && (input.charAt(0) != 'A') && (input.charAt(0) != 'S') && (input.charAt(0) != 'P'))) {
                 return getUsersNextActionType();
             }
             else {

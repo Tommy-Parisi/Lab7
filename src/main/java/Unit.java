@@ -111,4 +111,6 @@ public abstract class Unit {
 
     public abstract boolean validSpawnPath(int fromRow, int fromCol, int toRow, int toCol);
 
+    public abstract boolean validPushPath(int fromRow, int fromCol, int toRow, int toCol);
+
 }
