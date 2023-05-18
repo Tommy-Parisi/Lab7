@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class Team {
     private String color;
     private ArrayList<Unit> teamUnit;
+    private int teamPoints; // Updated total team points
     /**
      * This constructor creates a team and assigns the color and Unit Team ArrayList to its properties
      * @param color assigns the color passed to the property value
@@ -26,6 +27,10 @@ public class Team {
     public ArrayList<Unit> getTeamUnits() {
         return this.teamUnit;
     }
+    // Getter for teamPoints
+    public int getTeamPoints() {
+        return this.teamPoints;
+    }
     //This mutator method removes the unit passed into the function from the ArrayList of Units
     public void removeUnitsFromTeam(Unit unit) {
         this.teamUnit.remove(unit);
@@ -34,6 +39,10 @@ public class Team {
     public void addUnitsToTeam(Unit unit) {
         unit.setTeamColor(this.color);
         this.teamUnit.add(unit);
+    }
+    // This method gets the total points collected from the game
+    public void addPointsToTeam(Unit unit) {
+        this.teamPoints = this.teamPoints + unit.getPoints();
     }
     @Override
     public String toString() {
@@ -44,4 +53,3 @@ public class Team {
         return output;
     }
 }
-
