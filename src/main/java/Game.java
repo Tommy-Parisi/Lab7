@@ -81,15 +81,17 @@ public class Game{
         player2.setTurn(!isTurn(player2));
     }
 
+    // Edited to see if one team has more points than the other
     public boolean isAWinner(){
-        return (player1.getTeam().getTeamUnits().size() == 0) ^ (player2.getTeam().getTeamUnits().size() == 0);
+        return ((player1.getTeam().getTeamPoints() > player2.getTeam().getTeamPoints()) ^ (player2.getTeam().getTeamPoints() > player1.getTeam().getTeamPoints()));
     }
 
+    //Edited to compare the teams points
     public Player getWinner() {
-        if (player1.getTeam().getTeamUnits().size() == 0) {
-            return player2;
-        } else if (player2.getTeam().getTeamUnits().size() == 0) {
+        if (player1.getTeam().getTeamPoints() > player2.getTeam().getTeamPoints()) {
             return player1;
+        } else if (player2.getTeam().getTeamPoints() > player1.getTeam().getTeamPoints()) {
+            return player2;
         } else {
             return null;
         }
