@@ -10,6 +10,7 @@ public class BartSimpsonUnit extends Recruiter {
     protected boolean recruit; //can recruit other units
     private final int MAX_NUM_SPAWNED = 1;
 
+    // Updated to include points
     public BartSimpsonUnit(char symbol, String name, double health, double healthModifier,
                            double damage, double damageModifier, int luck, int xCor, int yCor,
                            int movement, int movementModifier, int numTimesSpawned,

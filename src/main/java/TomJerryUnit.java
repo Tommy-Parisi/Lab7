@@ -11,6 +11,7 @@ public class TomJerryUnit extends Attacker {
     private boolean hiding;
     private final int MAX_NUM_SPAWNED = 1;
 
+    //Updated to include points
     public TomJerryUnit(char symbol, String name, double health, double healthModifier, double damage,
                         double damageModifier, int luck, int xCor, int yCor, int movement, int movementModifier,
                         boolean homingRocket, boolean offerCheese, boolean hiding, String teamColor, int numAttacks, int points) {
