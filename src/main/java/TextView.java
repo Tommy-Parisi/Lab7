@@ -99,7 +99,7 @@ public class TextView {
 
     //Prints result of game
     public void printEndOfGameMessage(Game game) {
-        System.out.println("Game over. " + game.getCurrentPlayer().getTeam() + " wins!");
+        System.out.println("Game over. " + game.getWinner());
     }
 
 

@@ -58,8 +58,8 @@ public class BoardSquare {
     //method to eject the unit when it lands on the special square
     public void ejectUnit() {
         if (unit != null){
-            unit.setHealth(0.0); //Eject the unit from the game
             unit = null; //remove the unit from the square
+            this.empty = true;
         }
     }
 

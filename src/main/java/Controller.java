@@ -41,8 +41,8 @@ public class Controller {
         TomJerryUnit tj2 = new TomJerryUnit();
         tj2.setTeamColor("Red");
 
-        StewieGriffinUnit g2 = new StewieGriffinUnit();
-        g2.setTeamColor("Red");
+       StewieGriffinUnit g2 = new StewieGriffinUnit();
+       g2.setTeamColor("Red");
 
         SquidwardUnit s2 = new SquidwardUnit();
         s2.setTeamColor("Red");

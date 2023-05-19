@@ -13,10 +13,10 @@ public class TomJerryUnit extends Attacker {
 
     public TomJerryUnit(char symbol, String name, double health, double healthModifier, double damage,
                         double damageModifier, int luck, int xCor, int yCor, int movement, int movementModifier,
-                        boolean homingRocket, boolean offerCheese, boolean hiding, String teamColor, int numAttacks) {
+                        boolean homingRocket, boolean offerCheese, boolean hiding, String teamColor, int numAttacks, int points) {
 
         super(symbol, name, health, healthModifier, damage, damageModifier,
-                luck, xCor, yCor, movement, movementModifier, teamColor, numAttacks);
+                luck, xCor, yCor, movement, movementModifier, teamColor, numAttacks, points);
 
         this.homingRocket = homingRocket;
         this.offerCheese = offerCheese;
@@ -25,7 +25,7 @@ public class TomJerryUnit extends Attacker {
 
     public TomJerryUnit() {
         this('T', "Tom & Jerry", 100.0, 0.0, 25.0, 0.0,
-                0, 5, 5, 1, 0, true, true, false, "Purple", 0);
+                0, 5, 5, 1, 0, true, true, false, "Purple", 0, 4);
     }
 
     public boolean canHomingRocket() {
@@ -80,6 +80,7 @@ public class TomJerryUnit extends Attacker {
             newTJ.setHomingRocket(true);
             newTJ.setOfferCheese(true);
             newTJ.setHiding(false);
+            newTJ.setPoints(1); // Spawn points
             return newTJ;
         }
         else {

@@ -82,16 +82,16 @@ public class Game{
     }
 
     public boolean isAWinner(){
-        return (player1.getTeam().getTeamUnits().size() == 0) ^ (player2.getTeam().getTeamUnits().size() == 0);
+        return ((player1.getTeam().getTeamPoints() > player2.getTeam().getTeamPoints()) ^ (player2.getTeam().getTeamPoints() > player1.getTeam().getTeamPoints()));
     }
 
-    public Player getWinner() {
-        if (player1.getTeam().getTeamUnits().size() == 0) {
-            return player2;
-        } else if (player2.getTeam().getTeamUnits().size() == 0) {
-            return player1;
+    public String getWinner() {
+        if (player1.getTeam().getTeamPoints() > player2.getTeam().getTeamPoints()) {
+            return ("Player 1 Wins!");
+        } else if (player2.getTeam().getTeamPoints() > player1.getTeam().getTeamPoints()) {
+            return ("Player 2 Wins!");
         } else {
-            return null;
+            return ("It's a tie!");
         }
     }
 

@@ -4,16 +4,21 @@ public class ActionMove extends Action {
     }
 
     public void performAction() {
-        BoardSquare[][] square = this.game.getBoardSquares();
-        if(square[toRow][toCol].isSpecial()){ //if its square special
-            square[toRow][toCol].ejectUnit(); //eject the unit occupying the space
+        BoardSquare[][] findSquare = this.game.getBoardSquares();
+        Unit fromUnit = findSquare[fromRow][fromCol].getUnit();
+        Unit toUnit = findSquare[toRow][toCol].getUnit();
+
+        if(findSquare[toRow][toCol].isSpecial()){ //if its BoardSquare special
+            this.game.getCurrentPlayer().getTeam().removeUnitsFromTeam(fromUnit);
+            findSquare[fromRow][fromCol].ejectUnit(); //eject the unit occupying the space
+            Unit unit = findSquare[fromRow][fromCol].removeUnit();
             System.out.println("Your unit stepped on a hidden springboard!");
             System.out.println("Your unit was ejected from the game.");
-            Unit unit = square[fromRow][fromCol].removeUnit();
+            this.game.changeTurn();
         }
         else {
-            Unit unit = square[fromRow][fromCol].removeUnit();
-            square[toRow][toCol].setUnit(unit);
+            Unit unit = findSquare[fromRow][fromCol].removeUnit();
+            findSquare[toRow][toCol].setUnit(unit);
             this.game.changeTurn();
         }
     }
