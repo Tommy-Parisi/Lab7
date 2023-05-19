@@ -43,6 +43,7 @@ public class ActionAttack extends Action {
                 if (findUnit[fromRow][fromCol].getUnit().getLivesTaken() >= 2){
                     TomJerryUnit tomJerry = new TomJerryUnit();
                     game.getGameBoard().findRandomEmptySpace().setUnit(tomJerry);
+                    tomJerry.setTeamColor(findUnit[fromRow][fromCol].getUnit().teamColor);
                 }
             }
             // If the unit being attacked is a BartSimpsonUnit or SquidwardUnit, remove it
@@ -54,6 +55,7 @@ public class ActionAttack extends Action {
                 if (findUnit[fromRow][fromCol].getUnit().getLivesTaken() >= 2){
                     BartSimpsonUnit bart = new BartSimpsonUnit();
                     game.getGameBoard().findRandomEmptySpace().setUnit(bart);
+                    bart.setTeamColor(findUnit[fromRow][fromCol].getUnit().teamColor);
                 }
             }
             // Change the turn
