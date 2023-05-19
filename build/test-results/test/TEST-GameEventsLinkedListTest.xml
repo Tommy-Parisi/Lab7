@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="GameEventsLinkedListTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-04-19T14:26:50" hostname="DAREOMEN" time="0.05">
+  <properties/>
+  <testcase name="testRemoveNonEmpty()" classname="GameEventsLinkedListTest" time="0.032"/>
+  <testcase name="testAdd()" classname="GameEventsLinkedListTest" time="0.001"/>
+  <testcase name="testRemoveEmpty()" classname="GameEventsLinkedListTest" time="0.003"/>
+  <testcase name="testEmptyList()" classname="GameEventsLinkedListTest" time="0.001"/>
+  <testcase name="testNonEmptyList()" classname="GameEventsLinkedListTest" time="0.001"/>
+  <testcase name="testExtractNonEmptyList()" classname="GameEventsLinkedListTest" time="0.001"/>
+  <testcase name="testExtractEmpty()" classname="GameEventsLinkedListTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
