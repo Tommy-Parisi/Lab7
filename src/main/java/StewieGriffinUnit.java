@@ -18,10 +18,10 @@ public class StewieGriffinUnit extends Attacker {
 
     public StewieGriffinUnit(char symbol, String name, double health, double healthModifier, double damage,
                         double damageModifier, int luck, int xCor, int yCor, int movement, int movementModifier,
-                        boolean laserGun, boolean Tricycle, boolean crib, String teamColor, int numAttacks, int points) {
+                        boolean laserGun, boolean Tricycle, boolean crib, String teamColor, int numAttacks, int points, int livesTaken) {
 
         super(symbol, name, health, healthModifier, damage, damageModifier,
-                luck, xCor, yCor, movement, movementModifier, teamColor, numAttacks, points);
+                luck, xCor, yCor, movement, movementModifier, teamColor, numAttacks, points, livesTaken);
 
         this.laserGun = laserGun;
         this.Tricycle = Tricycle;
@@ -30,7 +30,7 @@ public class StewieGriffinUnit extends Attacker {
 
     public StewieGriffinUnit() {
         this('G', "Stewie Griffin", 100.0, 0.0, 25.0, 0.0,
-                0, 5, 5, 1, 0, true, true, false, "Purple", 0, 2);
+                0, 5, 5, 1, 0, true, true, false, "Purple", 0, 2, 0);
     }
 
     public boolean hasLaserGun() {
@@ -86,6 +86,7 @@ public class StewieGriffinUnit extends Attacker {
             newSG.setTricycle(true);
             newSG.setCrib(false);
             newSG.setPoints(1);
+            newSG.setLivesTaken(0);
             return newSG;
         }
         else {

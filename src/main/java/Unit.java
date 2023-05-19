@@ -13,10 +13,11 @@ public abstract class Unit {
     protected int movementModifier; //modifications to units movement
     protected String teamColor; //the color for the team
     protected int points; // Edited to get units points
+    protected int livesTaken; //amount of lives taken
 
     // Updated to include points
     public Unit(char symbol, String name, double health, double healthModifier, double damage, double damageModifier,
-                int luck, int xCor, int yCor, int movement, int movementModifier, String teamColor, int points){
+                int luck, int xCor, int yCor, int movement, int movementModifier, String teamColor, int points, int livesTaken){
         this.symbol = symbol;
         this.name = name;
         this.health = health;
@@ -29,7 +30,9 @@ public abstract class Unit {
         this.movement = movement;
         this.movementModifier = movementModifier;
         this.points = points;
+        this.livesTaken = livesTaken;
     }
+
     public char getSymbol(){
         return this.symbol;
     }
@@ -69,7 +72,10 @@ public abstract class Unit {
 
     // Getter for points
     public int getPoints() {
-        return points;
+        return this.points;
+    }
+    public int getLivesTaken() {
+        return this.livesTaken;
     }
     public void setSymbol(char symbol) {
         this.symbol = symbol;
@@ -111,6 +117,13 @@ public abstract class Unit {
     // Setter for points
     public void setPoints(int points) {
         this.points = points;
+    }
+    public void setLivesTaken(int livesTaken) {
+        this.livesTaken = livesTaken;
+    }
+
+    public void incrementLivesTaken(){
+        this.livesTaken += 1;
     }
     public abstract boolean canSpawn();
 

@@ -41,8 +41,8 @@ public class Controller {
         TomJerryUnit tj2 = new TomJerryUnit();
         tj2.setTeamColor("Red");
 
-       StewieGriffinUnit g2 = new StewieGriffinUnit();
-       g2.setTeamColor("Red");
+        StewieGriffinUnit g2 = new StewieGriffinUnit();
+        g2.setTeamColor("Red");
 
         SquidwardUnit s2 = new SquidwardUnit();
         s2.setTeamColor("Red");
@@ -108,33 +108,33 @@ public class Controller {
 
     }
 
-        public void playGame(){
-            while (!(this.game.isGameEnded())){
+    public void playGame(){
+        while (!(this.game.isGameEnded())){
+            text.getNextPlayersAction(this.game);
+            while (!(Rules.checkValidAction(this.game, text.getFromSquareRow(), text.getFromSquareCol(), text.getToSquareRow(), text.getToSquareCol(), text.getActionType()))){
+                System.out.println("Not valid");
                 text.getNextPlayersAction(this.game);
-                while (!(Rules.checkValidAction(this.game, text.getFromSquareRow(), text.getFromSquareCol(), text.getToSquareRow(), text.getToSquareCol(), text.getActionType()))){
-                    System.out.println("Not valid");
-                    text.getNextPlayersAction(this.game);
-                }
-                carryOutAction(text.getFromSquareRow(), text.getFromSquareCol(), text.getToSquareRow(), text.getToSquareCol(), text.getActionType());
-                System.out.println(this.game);
             }
-            // New addition
-            System.out.println("Winning move: " + this.linkedList.pop().getEventDetails());
-            ArrayList<GameEventsLinkedList> gameEventLinkedLists = new ArrayList<>();
-            gameEventLinkedLists.add(this.linkedList.pop("M"));
-            gameEventLinkedLists.add(this.linkedList.pop("A"));
-            gameEventLinkedLists.add(this.linkedList.pop("R"));
-            gameEventLinkedLists.add(this.linkedList.pop("S"));
-            Collections.sort(gameEventLinkedLists);
-            Collections.reverse(gameEventLinkedLists);
-            for (GameEventsLinkedList eventList : gameEventLinkedLists) {
-                System.out.println("Event Type: " + text.getActionType() + "Size: " + eventList.countEvents());
-            }
-            text.printEndOfGameMessage(this.game);
+            carryOutAction(text.getFromSquareRow(), text.getFromSquareCol(), text.getToSquareRow(), text.getToSquareCol(), text.getActionType());
+            System.out.println(this.game);
         }
+        // New addition
+        System.out.println("Winning move: " + this.linkedList.pop().getEventDetails());
+        ArrayList<GameEventsLinkedList> gameEventLinkedLists = new ArrayList<>();
+        gameEventLinkedLists.add(this.linkedList.pop("M"));
+        gameEventLinkedLists.add(this.linkedList.pop("A"));
+        gameEventLinkedLists.add(this.linkedList.pop("R"));
+        gameEventLinkedLists.add(this.linkedList.pop("S"));
+        Collections.sort(gameEventLinkedLists);
+        Collections.reverse(gameEventLinkedLists);
+        for (GameEventsLinkedList eventList : gameEventLinkedLists) {
+            System.out.println("Event Type: " + text.getActionType() + "Size: " + eventList.countEvents());
+        }
+        text.printEndOfGameMessage(this.game);
+    }
 
     public static void main(String[] args) {
         Controller newController = new Controller();
         newController.playGame();
     }
-        }
+}

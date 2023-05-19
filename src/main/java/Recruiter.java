@@ -4,9 +4,9 @@ public abstract class Recruiter extends Unit {
     // Updated to include points
     public Recruiter(char symbol, String name, double health, double healthModifier,
                      double damage, double damageModifier, int luck, int xCor, int yCor,
-                     int movement, int movementModifier, String teamColor, int numRecruits, int points){
+                     int movement, int movementModifier, String teamColor, int numRecruits, int points, int livesTaken){
         super(symbol, name, health, healthModifier, damage, damageModifier,
-                luck, xCor, yCor, movement, movementModifier, teamColor, points);
+                luck, xCor, yCor, movement, movementModifier, teamColor, points, livesTaken);
         this.numRecruits = numRecruits;
     }
     public int getNumRecruits() {

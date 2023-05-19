@@ -14,10 +14,10 @@ public class BartSimpsonUnit extends Recruiter {
     public BartSimpsonUnit(char symbol, String name, double health, double healthModifier,
                            double damage, double damageModifier, int luck, int xCor, int yCor,
                            int movement, int movementModifier, int numTimesSpawned,
-                           boolean distract, boolean recruit, String teamColor, int numRecruits, int points) {
+                           boolean distract, boolean recruit, String teamColor, int numRecruits, int points, int livesTaken) {
 
         super(symbol, name, health, healthModifier, damage, damageModifier,
-                luck, xCor, yCor, movement, movementModifier, teamColor, numRecruits, points);
+                luck, xCor, yCor, movement, movementModifier, teamColor, numRecruits, points, livesTaken);
 
         this.numTimesSpawned = numTimesSpawned;
         this.distract = distract;
@@ -27,7 +27,7 @@ public class BartSimpsonUnit extends Recruiter {
     public BartSimpsonUnit() {
         this('B', "Bart Simpson", 100.0, 0.0, 25.0,
                 0.0, 0, 5, 5, 1, 0,
-                0, true, true, "Yellow", 0, 3);
+                0, true, true, "Yellow", 0, 3, 0);
     }
 
     public int getNumTimesSpawned() {
@@ -91,6 +91,7 @@ public class BartSimpsonUnit extends Recruiter {
             newBart.setRecruit(true);
             setNumTimesSpawned(this.getNumTimesSpawned() + 1);
             newBart.setPoints(1); // Spawn points
+            newBart.setLivesTaken(0);
             return newBart;
         } else {
             return null;

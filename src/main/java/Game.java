@@ -1,5 +1,4 @@
 import java.util.Collections;
-
 /**
  * This class creates a Game
  * @Author Tommy Parisi & Joey Dare
@@ -37,10 +36,10 @@ public class Game{
             randomSquare.setUnit(unit);
         }
 
-        //BoardSquare specialSquare = gameBoard.findRandomEmptySpace(); //initializes special square
-        BoardSquare[][] ZeroZero = gameBoard.getSquares(); //Test special, remove comment to test
-        //specialSquare.setSpecial(specialSquare); //makes specialSquare special
-        ZeroZero[0][0].setSpecial(ZeroZero[0][0]); //Test special, remove comment to test
+        BoardSquare specialSquare = gameBoard.findRandomEmptySpace(); //initializes special square
+        //BoardSquare[][] ZeroZero = gameBoard.getSquares(); //Test special, remove comment to test
+        specialSquare.setSpecial(specialSquare); //makes specialSquare special
+        //ZeroZero[0][0].setSpecial(ZeroZero[0][0]); //Test special, remove comment to test
 
         return gameBoard;
     }
@@ -87,9 +86,9 @@ public class Game{
 
     public String getWinner() {
         if (player1.getTeam().getTeamPoints() > player2.getTeam().getTeamPoints()) {
-            return ("Player 1 Wins!");
+            return ("Player 1 Wins! Points: " + player1.getTeam().getTeamPoints());
         } else if (player2.getTeam().getTeamPoints() > player1.getTeam().getTeamPoints()) {
-            return ("Player 2 Wins!");
+            return ("Player 2 Wins! Points: " + player2.getTeam().getTeamPoints());
         } else {
             return ("It's a tie!");
         }
